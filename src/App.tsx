@@ -14,6 +14,7 @@ import {
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
 import { copyText, shareResult, shareText } from './lib/share'
 import { href, navigate, useRoute } from './router'
+import { useTheme } from './theme'
 
 type Load = { state: 'loading' } | { state: 'error'; message: string } | { state: 'ready'; bank: Question[] }
 
@@ -149,9 +150,11 @@ export default function App() {
           <span>Undercut</span>
         </Link>
         <nav aria-label="Main">
+          <ThemeToggle />
           <Link to="/archive" className="iconbtn">Archive</Link>
-          <button className="iconbtn" onClick={() => setHelpOpen(true)} aria-haspopup="dialog">
-            How to play
+          <button className="iconbtn" onClick={() => setHelpOpen(true)} aria-haspopup="dialog" aria-label="How to play">
+            <span className="long">How to play</span>
+            <span className="short">Help</span>
           </button>
         </nav>
       </header>
@@ -181,6 +184,25 @@ function questionsFor(n: number, bank: Question[], progress: Progress): Question
     if (kept.every(Boolean)) return kept as Question[]
   }
   return questionsForPuzzle(n, bank)
+}
+
+function ThemeToggle() {
+  const [theme, toggle] = useTheme()
+  const next = theme === 'dark' ? 'light' : 'dark'
+  return (
+    <button className="iconbtn theme-toggle" onClick={toggle} aria-label={`Switch to ${next} mode`} title={`Switch to ${next} mode`}>
+      {theme === 'dark' ? (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.5" />
+          <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z" />
+        </svg>
+      )}
+    </button>
+  )
 }
 
 function Logo() {
@@ -368,6 +390,7 @@ interface RevealProps {
 function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
   const f = offFactor(guess, q.answer)
   const dir = direction(guess, q.answer)
+  const finish = FINISH[finishFor(f)]
   return (
     <div className="reveal" aria-live="polite">
       <div className="duo">
@@ -385,10 +408,16 @@ function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
         </div>
       </div>
 
-      <div className="landed">
-        <span className="lbl">You landed</span>
-        <strong className="factor">{dir === 'exact' ? '1.00×' : formatFactor(f)}</strong>
-        <strong className="dir">{dir === 'exact' ? 'Spot on' : dir === 'high' ? 'Too high' : 'Too low'}</strong>
+      <div className="landed-row">
+        <div className="landed">
+          <span className="lbl">You landed</span>
+          <strong className="factor">{dir === 'exact' ? '1.00×' : formatFactor(f)}</strong>
+          <strong className="dir">{dir === 'exact' ? 'Spot on' : dir === 'high' ? 'Too high' : 'Too low'}</strong>
+        </div>
+        <div className="finish-box" role="img" aria-label={finish.label}>
+          <span className="finish-icon" aria-hidden="true">{finish.icon}</span>
+          <span className="finish-label">{finish.label}</span>
+        </div>
       </div>
 
       <div className="reveal-foot">
