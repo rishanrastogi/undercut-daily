@@ -1,4 +1,5 @@
 import { DIFFICULTIES, type Question } from './types'
+import type { Progress } from './storage'
 
 /** Puzzle #1 is this UTC date. Every player worldwide gets the same puzzle per UTC day. */
 export const LAUNCH_DATE = '2026-11-08'
@@ -61,3 +62,15 @@ export function questionsForPuzzle(n: number, bank: Question[]): Question[] {
   const slot = (n - 1) % daysPerCycle
   return pools.map((pool, i) => seededShuffle(pool, (0x9e3779b1 ^ (cycle + 1)) + i * 7919)[slot])
 }
+
+/** Prefer the questions a player originally saw, so adding questions later never rewrites past results. */
+export function questionsFor(n: number, bank: Question[], progress: Progress): Question[] {
+  const ids = progress.puzzles[String(n)]?.questionIds
+  if (ids?.length) {
+    const byId = new Map(bank.map((q) => [q.id, q]))
+    const kept = ids.map((id) => byId.get(id))
+    if (kept.every(Boolean)) return kept as Question[]
+  }
+  return questionsForPuzzle(n, bank)
+}
+

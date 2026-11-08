@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent, type ReactNode, type RefObject } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode, type RefObject } from 'react'
 import type { Question } from './lib/types'
-import { dateForPuzzle, puzzleNumberFor, questionsForPuzzle } from './lib/puzzle'
+import { dateForPuzzle, puzzleNumberFor, questionsFor } from './lib/puzzle'
 import {
   averageFactor,
   direction,
@@ -12,7 +12,9 @@ import {
 } from './lib/scoring'
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
 import { copyText, shareResult, shareText } from './lib/share'
-import { href, navigate, useRoute } from './router'
+import { href, useRoute } from './router'
+import { Link } from './Link'
+import { Archive } from './Archive'
 import { useTheme } from './theme'
 import { Tyre } from './Tyre'
 import { FinishIcon, FlagIcon, MedalIcon, ThumbsUpIcon, TrophyIcon, WarningIcon } from './Icons'
@@ -43,19 +45,6 @@ function useQuestions(): [Load, () => void] {
     }
   }, [attempt])
   return [load, () => setAttempt((a) => a + 1)]
-}
-
-function Link({ to, children, className }: { to: string; children: ReactNode; className?: string }) {
-  const onClick = (e: MouseEvent) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
-    e.preventDefault()
-    navigate(to)
-  }
-  return (
-    <a href={href(to)} onClick={onClick} className={className}>
-      {children}
-    </a>
-  )
 }
 
 export default function App() {
@@ -102,7 +91,7 @@ export default function App() {
       </div>
     )
   } else if (route.name === 'archive') {
-    body = <Archive today={today} progress={progress} />
+    body = <Archive today={today} progress={progress} bank={load.bank} />
   } else if (route.name === 'notfound') {
     body = (
       <div className="state">
@@ -174,17 +163,6 @@ export default function App() {
       {helpOpen && <Help onClose={closeHelp} />}
     </div>
   )
-}
-
-/** Prefer the questions a player originally saw, so adding questions later never rewrites past results. */
-function questionsFor(n: number, bank: Question[], progress: Progress): Question[] {
-  const ids = progress.puzzles[String(n)]?.questionIds
-  if (ids?.length) {
-    const byId = new Map(bank.map((q) => [q.id, q]))
-    const kept = ids.map((id) => byId.get(id))
-    if (kept.every(Boolean)) return kept as Question[]
-  }
-  return questionsForPuzzle(n, bank)
 }
 
 function ThemeToggle() {
@@ -547,31 +525,6 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
         )}
       </div>
     </article>
-  )
-}
-
-function Archive({ today, progress }: { today: number; progress: Progress }) {
-  if (today < 1) return <div className="state"><p>No puzzles yet.</p></div>
-  const list = Array.from({ length: today }, (_, i) => today - i)
-  return (
-    <section className="card">
-      <h1 className="h1">Archive</h1>
-      <p className="hint">Play past puzzles. Your recorded guesses are never changed.</p>
-      <ul className="archive">
-        {list.map((n) => {
-          const rec = progress.puzzles[String(n)]
-          const status = rec?.completedAt ? 'Done' : rec ? 'In progress' : 'Not played'
-          return (
-            <li key={n}>
-              <Link to={n === today ? '/' : `/p/${n}`}>
-                <span>#{n} <small>{dateForPuzzle(n)}</small></span>
-                <span className={`pill ${rec?.completedAt ? 'done' : ''}`}>{status}</span>
-              </Link>
-            </li>
-          )
-        })}
-      </ul>
-    </section>
   )
 }
 
