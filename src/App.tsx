@@ -174,7 +174,7 @@ export default function App() {
 /** Prefer the questions a player originally saw, so adding questions later never rewrites past results. */
 function questionsFor(n: number, bank: Question[], progress: Progress): Question[] {
   const ids = progress.puzzles[String(n)]?.questionIds
-  if (ids) {
+  if (ids?.length) {
     const byId = new Map(bank.map((q) => [q.id, q]))
     const kept = ids.map((id) => byId.get(id))
     if (kept.every(Boolean)) return kept as Question[]
