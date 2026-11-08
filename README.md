@@ -10,7 +10,7 @@ Undercut is a fan project. It is not affiliated with, endorsed by or connected t
 
 - Three questions per day, the same for every player. The puzzle number comes from the UTC date (puzzle #1 = 2026-11-08).
 - One guess per question. Guesses are saved in `localStorage` and can never be changed, including in the archive.
-- A transparent log-ratio score (see [Scoring](#scoring)) that handles zero answers safely.
+- A transparent times-off score (see [Scoring](#scoring)) that handles zero answers safely.
 - A results screen with the average times-off score, a finish badge, every question with its times-off number, played/streak/best-streak stats and a countdown to the next puzzle.
 - A spoiler-free share grid (`🟩🟨🟧🟥`). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
 - An archive of past puzzles at `/archive` and `/p/<n>`. No sign-in is needed.
@@ -44,23 +44,20 @@ npm run dev        # http://localhost:5173/undercut-daily/
 
 ## Scoring
 
-Each guess is compared to the answer by how many *times* off it is, so being 2× too high and 2× too low cost the same:
+Each guess is compared to the answer by how many *times* off it is, so being 2× too high and 2× too low count the same:
 
 ```
 factor = max(guess, answer) / min(guess, answer)     # 1 = exact
-points = max(0, round(100 − 100 × log10(factor)))   # 0–100 per question
 ```
 
-| Times off | Points | Tile |
-| --------- | ------ | ---- |
-| exact     | 100    | 🟩   |
-| ≤ 1.26×   | ≥ 90   | 🟩   |
-| ≤ 2×      | ≥ 70   | 🟨   |
-| ≤ 4×      | ≥ 40   | 🟧   |
-| > 4×      | < 40   | 🟥   |
-| ≥ 10×     | 0      | 🟥   |
+| Times off | Tile |
+| --------- | ---- |
+| ≤ 1.25×   | 🟩   |
+| ≤ 2×      | 🟨   |
+| ≤ 4×      | 🟧   |
+| > 4×      | 🟥   |
 
-The **daily score** shown on the results screen is the plain average of the three times-off factors (lower is better, 1× is perfect). It decides the finish badge:
+The **daily score** shown on the results screen is the plain average of the three factors (lower is better, 1× is perfect). It decides the finish badge:
 
 | Average times off | Badge |
 | ----------------- | ----- |
@@ -69,9 +66,7 @@ The **daily score** shown on the results screen is the plain average of the thre
 | ≤ 10×             | 👍 Points finish |
 | > 10×             | ⚠️ Crashed out |
 
-The points total (out of 300) is shown under it as a secondary number, and each question's points set its share tile.
-
-**Zero safety:** if the guess or the answer is 0, both are shifted by +1 before the ratio is taken, so nothing is ever divided by zero. A guess of 0 for an answer of 0 scores 100. Negative and non-numeric input is rejected in the UI, and `scoreGuess` throws on invalid input. All of this is in `src/lib/scoring.ts` and covered by `scoring.test.ts`.
+**Zero safety:** if the guess or the answer is 0, both are shifted by +1 before the ratio is taken, so nothing is ever divided by zero. A guess of 0 for an answer of 0 counts as exact. Negative and non-numeric input is rejected in the UI, and `offFactor` throws on invalid input. All of this is in `src/lib/scoring.ts` and covered by `scoring.test.ts`.
 
 ## Daily puzzle selection
 

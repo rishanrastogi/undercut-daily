@@ -1,42 +1,35 @@
 import { describe, expect, it } from 'vitest'
-import { averageFactor, direction, finishFor, offFactor, scoreGuess, tier } from './scoring'
+import { averageFactor, direction, finishFor, offFactor, tier } from './scoring'
 
-describe('scoring', () => {
-  it('gives 100 for an exact guess', () => {
-    expect(scoreGuess(575, 575)).toBe(100)
+describe('times off', () => {
+  it('is 1 for an exact guess', () => {
+    expect(offFactor(575, 575)).toBe(1)
   })
 
-  it('penalises over- and under-guesses symmetrically', () => {
-    expect(scoreGuess(200, 100)).toBe(scoreGuess(50, 100))
-    expect(scoreGuess(200, 100)).toBe(70)
-  })
-
-  it('floors at 0 for 10× or worse', () => {
-    expect(scoreGuess(1000, 100)).toBe(0)
-    expect(scoreGuess(1, 1_000_000)).toBe(0)
+  it('treats over- and under-guesses symmetrically', () => {
+    expect(offFactor(200, 100)).toBe(2)
+    expect(offFactor(50, 100)).toBe(2)
   })
 
   it('handles zero answers and zero guesses without dividing by zero', () => {
-    expect(scoreGuess(0, 0)).toBe(100)
     expect(offFactor(0, 0)).toBe(1)
     expect(offFactor(9, 0)).toBe(10)
-    expect(scoreGuess(9, 0)).toBe(0)
-    expect(Number.isFinite(scoreGuess(0, 50))).toBe(true)
-    expect(scoreGuess(0, 50)).toBeGreaterThanOrEqual(0)
+    expect(offFactor(0, 9)).toBe(10)
+    expect(Number.isFinite(offFactor(0, 50))).toBe(true)
   })
 
   it('rejects invalid input', () => {
-    expect(() => scoreGuess(-1, 10)).toThrow(RangeError)
-    expect(() => scoreGuess(Number.NaN, 10)).toThrow(RangeError)
+    expect(() => offFactor(-1, 10)).toThrow(RangeError)
+    expect(() => offFactor(Number.NaN, 10)).toThrow(RangeError)
   })
 
-  it('maps points to tiers at documented thresholds', () => {
-    expect(tier(100)).toBe(3)
-    expect(tier(90)).toBe(3)
-    expect(tier(89)).toBe(2)
-    expect(tier(70)).toBe(2)
-    expect(tier(40)).toBe(1)
-    expect(tier(39)).toBe(0)
+  it('maps factors to tiles at documented thresholds', () => {
+    expect(tier(1)).toBe(3)
+    expect(tier(1.25)).toBe(3)
+    expect(tier(1.26)).toBe(2)
+    expect(tier(2)).toBe(2)
+    expect(tier(4)).toBe(1)
+    expect(tier(4.01)).toBe(0)
   })
 
   it('reports direction', () => {

@@ -8,7 +8,6 @@ import {
   finishFor,
   formatFactor,
   offFactor,
-  scoreGuess,
   tier,
   TIER_EMOJI,
 } from './lib/scoring'
@@ -229,7 +228,7 @@ function Game({ n, isToday, today, questions, progress, update }: GameProps) {
         {questions.map((q, i) => {
           const g = guesses[q.id]
           const done = g !== undefined
-          const label = done ? TIER_EMOJI[tier(scoreGuess(g, q.answer))] : String(i + 1)
+          const label = done ? TIER_EMOJI[tier(offFactor(g, q.answer))] : String(i + 1)
           return (
             <li key={q.id}>
               <button
@@ -367,10 +366,8 @@ interface RevealProps {
 }
 
 function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
-  const pts = scoreGuess(guess, q.answer)
   const f = offFactor(guess, q.answer)
   const dir = direction(guess, q.answer)
-  const t = tier(pts)
   return (
     <div className="reveal" aria-live="polite">
       <div className="duo">
@@ -392,9 +389,6 @@ function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
         <span className="lbl">You landed</span>
         <strong className="factor">{dir === 'exact' ? '1.00×' : formatFactor(f)}</strong>
         <strong className="dir">{dir === 'exact' ? 'Spot on' : dir === 'high' ? 'Too high' : 'Too low'}</strong>
-        <span className="landed-pts">
-          {TIER_EMOJI[t]} {pts} / 100 points
-        </span>
       </div>
 
       <div className="reveal-foot">
@@ -457,8 +451,6 @@ interface ResultsProps {
 
 function Results({ n, isToday, today, questions, guesses, progress }: ResultsProps) {
   const factors = questions.map((q) => offFactor(guesses[q.id], q.answer))
-  const points = questions.map((q) => scoreGuess(guesses[q.id], q.answer))
-  const total = points.reduce((a, b) => a + b, 0)
   const avg = averageFactor(factors)
   const finish = FINISH[finishFor(avg)]
   const s = useMemo(() => streaks(progress, today), [progress, today])
@@ -466,7 +458,7 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
   const countdown = useCountdown()
 
   const run = async (how: 'share' | 'copy') => {
-    const text = shareText(n, avg, points, location.origin + href('/'))
+    const text = shareText(n, avg, factors, location.origin + href('/'))
     const r = how === 'share' ? await shareResult(text) : await copyText(text)
     setMsg(
       r === 'copied' ? 'Copied to clipboard!' : r === 'shared' ? 'Shared!' : r === 'cancelled' ? '' : "Couldn't copy. Your browser blocked it.",
@@ -477,10 +469,7 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
     <article className="card results" aria-labelledby="res-title">
       <div className="res-left">
         <p className="res-lbl" id="res-title">Score</p>
-        <p className="res-score" aria-describedby="res-explain">{formatFactor(avg)}</p>
-        <p id="res-explain" className="res-sub">
-          Average times off across {questions.length} questions · {total} / {questions.length * 100} points
-        </p>
+        <p className="res-score" aria-label={`${formatFactor(avg)} average times off`}>{formatFactor(avg)}</p>
         <div className="finish-box" role="img" aria-label={finish.label}>
           <span className="finish-icon" aria-hidden="true">{finish.icon}</span>
           <span className="finish-label">{finish.label}</span>
@@ -564,15 +553,14 @@ function Help({ onClose }: { onClose: () => void }) {
       </ol>
       <h3>Scoring</h3>
       <p>
-        We measure how many <i>times</i> off you were, so 2× too high and 2× too low count the same. Each question is
-        worth up to 100 points:
+        We measure how many <i>times</i> off you were, so 2× too high and 2× too low count the same. 1× is perfect.
       </p>
-      <p className="formula">points = 100 − 100 × log₁₀(times off)</p>
+      <p className="formula">times off = bigger number ÷ smaller number</p>
       <ul className="tiers">
-        <li>🟩 1.26× or closer, 90+</li>
-        <li>🟨 within 2×, 70+</li>
-        <li>🟧 within 4×, 40+</li>
-        <li>🟥 further than that. 10× off or worse scores 0.</li>
+        <li>🟩 within 1.25×</li>
+        <li>🟨 within 2×</li>
+        <li>🟧 within 4×</li>
+        <li>🟥 further than that</li>
       </ul>
       <p>
         Your <b>daily score</b> is the average of your three “times off” numbers. Lower is better, and 1× is perfect:

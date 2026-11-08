@@ -1,8 +1,8 @@
 import { FINISH, finishFor, formatFactor, TIER_EMOJI, tier } from './scoring'
 
 /** Spoiler-free: puzzle number, average times-off, finish icon and one tile per question. No guesses or answers. */
-export function shareText(puzzle: number, avgFactor: number, points: number[], url: string): string {
-  const grid = points.map((p) => TIER_EMOJI[tier(p)]).join('')
+export function shareText(puzzle: number, avgFactor: number, factors: number[], url: string): string {
+  const grid = factors.map((f) => TIER_EMOJI[tier(f)]).join('')
   return `Undercut #${puzzle} · ${formatFactor(avgFactor)} ${FINISH[finishFor(avgFactor)].icon}\n${grid}\n${url}`
 }
 
