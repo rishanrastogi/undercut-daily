@@ -14,7 +14,7 @@ Undercut is a fan project. It is not affiliated with, endorsed by or connected t
 - A results screen with the average times-off score, a finish badge, every question with its times-off number, played/streak/best-streak stats and a countdown to the next puzzle.
 - A spoiler-free share line with one tyre per question (`🔴🟡⚪` for soft/medium/hard). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
 - Dark mode by default, with a light/dark toggle in the header. The choice is remembered per browser and applied before the first paint, so there's no flash.
-- A finish badge (🏆/🥇/👍/⚠️) on each question's answer screen and on the results screen, using the same thresholds.
+- A finish badge (trophy, medal, thumbs up or warning) on each question's answer screen and on the results screen, using the same thresholds. All in-app icons are original monochrome SVGs in `src/Icons.tsx` and `src/Tyre.tsx`. Emoji are only used in plain-text shares.
 - An archive of past puzzles at `/archive` and `/p/<n>`. No sign-in is needed.
 - Loading, error (with retry), empty, not-found and storage-blocked states. Dialogs and labels are accessible, focus is visible and reduced motion is respected.
 

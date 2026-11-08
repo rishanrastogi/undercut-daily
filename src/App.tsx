@@ -15,6 +15,7 @@ import { copyText, shareResult, shareText } from './lib/share'
 import { href, navigate, useRoute } from './router'
 import { useTheme } from './theme'
 import { Tyre } from './Tyre'
+import { FinishIcon, FlagIcon, MedalIcon, ThumbsUpIcon, TrophyIcon, WarningIcon } from './Icons'
 
 type Load = { state: 'loading' } | { state: 'error'; message: string } | { state: 'ready'; bank: Question[] }
 
@@ -272,7 +273,7 @@ function Game({ n, isToday, today, questions, progress, update }: GameProps) {
             aria-label="Results"
             onClick={() => setViewing(ids.length)}
           >
-            🏁
+            <FlagIcon size={22} />
           </button>
         </li>
       </ol>
@@ -390,7 +391,8 @@ interface RevealProps {
 function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
   const f = offFactor(guess, q.answer)
   const dir = direction(guess, q.answer)
-  const finish = FINISH[finishFor(f)]
+  const finishKey = finishFor(f)
+  const finish = FINISH[finishKey]
   return (
     <div className="reveal" aria-live="polite">
       <div className="duo">
@@ -415,7 +417,7 @@ function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
           <strong className="dir">{dir === 'exact' ? 'Spot on' : dir === 'high' ? 'Too high' : 'Too low'}</strong>
         </div>
         <div className="finish-box" role="img" aria-label={finish.label}>
-          <span className="finish-icon" aria-hidden="true">{finish.icon}</span>
+          <FinishIcon finish={finishKey} className="finish-icon" />
           <span className="finish-label">{finish.label}</span>
         </div>
       </div>
@@ -481,7 +483,8 @@ interface ResultsProps {
 function Results({ n, isToday, today, questions, guesses, progress }: ResultsProps) {
   const factors = questions.map((q) => offFactor(guesses[q.id], q.answer))
   const avg = averageFactor(factors)
-  const finish = FINISH[finishFor(avg)]
+  const finishKey = finishFor(avg)
+  const finish = FINISH[finishKey]
   const s = useMemo(() => streaks(progress, today), [progress, today])
   const [msg, setMsg] = useState('')
   const countdown = useCountdown()
@@ -500,7 +503,7 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
         <p className="res-lbl" id="res-title">Score</p>
         <p className="res-score" aria-label={`${formatFactor(avg)} average times off`}>{formatFactor(avg)}</p>
         <div className="finish-box" role="img" aria-label={finish.label}>
-          <span className="finish-icon" aria-hidden="true">{finish.icon}</span>
+          <FinishIcon finish={finishKey} className="finish-icon" />
           <span className="finish-label">{finish.label}</span>
         </div>
         <div className="res-actions">
@@ -593,8 +596,13 @@ function Help({ onClose }: { onClose: () => void }) {
       </ul>
       <p>
         Your <b>daily score</b> is the average of your three “times off” numbers. Lower is better, and 1× is perfect:
-        🏆 2× or better, 🥇 under 5×, 👍 up to 10×, ⚠️ worse than 10×.
       </p>
+      <ul className="tiers">
+        <li><TrophyIcon size={22} /> Race win: 2× or better</li>
+        <li><MedalIcon size={22} /> Podium finish: under 5×</li>
+        <li><ThumbsUpIcon size={22} /> Points finish: up to 10×</li>
+        <li><WarningIcon size={22} /> Crashed out: worse than 10×</li>
+      </ul>
       <p className="hint">If an answer is 0, both numbers get +1 before comparing, so nothing breaks.</p>
       <p className="hint">Every answer comes from published historical race results, and each one links to its source.</p>
       <button className="btn primary" onClick={() => ref.current?.close()} autoFocus>Let's go</button>

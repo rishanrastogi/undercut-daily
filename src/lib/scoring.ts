@@ -65,9 +65,10 @@ export function finishFor(avg: number): Finish {
   return 'crash'
 }
 
+/** Labels for each finish. The app draws its own icons (src/Icons.tsx); emoji are only for plain-text shares. */
 export const FINISH = {
-  win: { icon: '🏆', label: 'Race win' },
-  podium: { icon: '🥇', label: 'Podium finish' },
-  points: { icon: '👍', label: 'Points finish' },
-  crash: { icon: '⚠️', label: 'Crashed out' },
+  win: { shareEmoji: '🏆', label: 'Race win' },
+  podium: { shareEmoji: '🥇', label: 'Podium finish' },
+  points: { shareEmoji: '👍', label: 'Points finish' },
+  crash: { shareEmoji: '⚠️', label: 'Crashed out' },
 } as const

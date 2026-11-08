@@ -160,7 +160,7 @@ form { display: flex; flex-direction: column; gap: 8px; }
   .landed-row { grid-template-columns: 1fr 118px; gap: 12px; }
   .factor { font-size: clamp(2.8rem, 15vw, 4rem); }
   .dir { font-size: clamp(1.8rem, 9vw, 2.6rem); }
-  .landed-row .finish-icon { font-size: 3.2rem; }
+  .landed-row .finish-icon { width: 52px; }
   .landed-row .finish-label { font-size: 0.72rem; letter-spacing: 0.1em; text-align: center; }
   .duo > div { padding: 16px; min-height: 130px; border-radius: 18px; }
   .reveal-foot { flex-direction: column; align-items: stretch; }
@@ -175,7 +175,8 @@ form { display: flex; flex-direction: column; gap: 8px; }
   flex: 1; min-height: 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
   background: var(--surface-2); border-radius: 20px; padding: 20px;
 }
-.finish-icon { font-size: clamp(4rem, 14vw, 6rem); line-height: 1; }
+.finish-icon { width: clamp(64px, 14vw, 96px); height: auto; }
+.icon { display: block; flex-shrink: 0; }
 .finish-label { font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.9rem; }
 .res-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .btn.pill { border-radius: 999px; min-height: 56px; padding: 0 18px; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 800; flex: 1 1 0; white-space: nowrap; }

@@ -3,7 +3,7 @@ import { COMPOUND, compoundFor, FINISH, finishFor, formatFactor } from './scorin
 /** Spoiler-free: puzzle number, average times-off, finish icon and one tyre per question. No guesses or answers. */
 export function shareText(puzzle: number, avgFactor: number, factors: number[], url: string): string {
   const grid = factors.map((f) => COMPOUND[compoundFor(f)].emoji).join('')
-  return `Undercut #${puzzle} · ${formatFactor(avgFactor)} ${FINISH[finishFor(avgFactor)].icon}\n${grid}\n${url}`
+  return `Undercut #${puzzle} · ${formatFactor(avgFactor)} ${FINISH[finishFor(avgFactor)].shareEmoji}\n${grid}\n${url}`
 }
 
 export type ShareResult = 'shared' | 'copied' | 'cancelled' | 'failed'
