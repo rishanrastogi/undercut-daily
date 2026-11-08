@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent, type ReactNode } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type MouseEvent, type ReactNode, type RefObject } from 'react'
 import type { Question } from './lib/types'
 import { dateForPuzzle, puzzleNumberFor, questionsForPuzzle } from './lib/puzzle'
 import {
@@ -8,7 +8,6 @@ import {
   scoreGuess,
   tier,
   TIER_EMOJI,
-  TIER_LABEL,
 } from './lib/scoring'
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
 import { shareResult, shareText } from './lib/share'
@@ -318,7 +317,7 @@ function QuestionCard({ index, total, q, guess, onSubmit, onNext, isLast }: Card
   const preview = typeof parseGuess(raw) === 'number' ? fmt(parseGuess(raw) as number) : null
 
   return (
-    <article className="card" aria-labelledby={`q-${q.id}`}>
+    <article className={`card ${answered ? 'answered' : ''}`} aria-labelledby={`q-${q.id}`}>
       <p className="eyebrow">
         Question {index + 1} of {total} · {q.season} season
       </p>
@@ -350,62 +349,59 @@ function QuestionCard({ index, total, q, guess, onSubmit, onNext, isLast }: Card
           <button className="btn primary" type="submit">Lock it in</button>
         </form>
       ) : (
-        <Reveal q={q} guess={guess} />
-      )}
-
-      {answered && (
-        <button ref={nextRef} className="btn primary" onClick={onNext}>
-          {isLast ? 'See results' : 'Next question'}
-        </button>
+        <Reveal q={q} guess={guess} nextRef={nextRef} onNext={onNext} nextLabel={isLast ? 'See results' : `Question ${index + 2}`} />
       )}
     </article>
   )
 }
 
-function Reveal({ q, guess }: { q: Question; guess: number }) {
+interface RevealProps {
+  q: Question
+  guess: number
+  nextRef: RefObject<HTMLButtonElement | null>
+  onNext: () => void
+  nextLabel: string
+}
+
+function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
   const pts = scoreGuess(guess, q.answer)
   const f = offFactor(guess, q.answer)
   const dir = direction(guess, q.answer)
   const t = tier(pts)
-  // Marker positions on a log scale spanning 10× either side of the answer.
-  const pos = (v: number) => {
-    const r = Math.log10(Math.max(v, 1e-9) / Math.max(q.answer, 1e-9))
-    return Math.min(100, Math.max(0, 50 + r * 50))
-  }
   return (
     <div className="reveal" aria-live="polite">
       <div className="duo">
-        <div>
-          <span className="lbl">Your guess</span>
+        <div className="guess-card">
+          <span className="lbl">You guessed</span>
           <strong className="num">{fmt(guess)}</strong>
         </div>
-        <div>
+        <div className="answer-card">
           <span className="lbl">Answer</span>
-          <strong className="num accent">{fmt(q.answer)}</strong>
+          <strong className="num">{fmt(q.answer)}</strong>
+          <span className="answer-unit">{q.unit}</span>
+          <span className="answer-src">
+            Source: <a href={q.sourceUrl} target="_blank" rel="noreferrer">{q.sourceName}</a>
+          </span>
         </div>
       </div>
-      <p className="unitline">{q.unit}</p>
-      <div className="track" role="img" aria-label={`Your guess was ${formatFactor(f)} ${dir === 'exact' ? 'exactly right' : dir === 'high' ? 'too high' : 'too low'}`}>
-        <span className="tick l">÷10</span>
-        <span className="tick c">exact</span>
-        <span className="tick r">×10</span>
-        <span className="mark answer" style={{ left: '50%' }} />
-        <span className={`mark guess t${t}`} style={{ left: `${pos(guess)}%` }} />
-      </div>
-      <div className={`score t${t}`}>
-        <span className="pts">{pts}<small>/100</small></span>
-        <span>
-          {TIER_EMOJI[t]} {TIER_LABEL[t]} · {dir === 'exact' ? 'Spot on!' : `${formatFactor(f)} too ${dir}`}
+
+      <div className="landed">
+        <span className="lbl">You landed</span>
+        <strong className="factor">{dir === 'exact' ? '1.00×' : formatFactor(f)}</strong>
+        <strong className="dir">{dir === 'exact' ? 'Spot on' : dir === 'high' ? 'Too high' : 'Too low'}</strong>
+        <span className="landed-pts">
+          {TIER_EMOJI[t]} {pts} / 100 points
         </span>
       </div>
-      {q.napkin && (
-        <p className="napkin"><b>Napkin math:</b> {q.napkin}</p>
-      )}
-      <details className="source">
-        <summary>
-          Source & method <span className={`badge ${q.sourceType}`}>{q.sourceType === 'reported' ? 'Reported' : 'Calculated'}</span>
-        </summary>
-        <dl>
+
+      <div className="reveal-foot">
+        <details className="napkin-panel">
+          <summary>
+            <span>Napkin math</span>
+            <span className={`badge ${q.sourceType}`}>{q.sourceType === 'reported' ? 'Reported' : 'Calculated'}</span>
+          </summary>
+          {q.napkin && <p className="napkin">{q.napkin}</p>}
+          <dl>
           <dt>What's counted</dt>
           <dd>{q.definition}</dd>
           <dt>How we got it</dt>
@@ -419,8 +415,12 @@ function Reveal({ q, guess }: { q: Question; guess: number }) {
               </>
             )}
           </dd>
-        </dl>
-      </details>
+          </dl>
+        </details>
+        <button ref={nextRef} className="btn next-btn" onClick={onNext}>
+          {nextLabel} <span aria-hidden="true">→</span>
+        </button>
+      </div>
     </div>
   )
 }
