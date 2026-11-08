@@ -8,13 +8,13 @@ import {
   finishFor,
   formatFactor,
   offFactor,
-  tier,
-  TIER_EMOJI,
+  compoundFor,
 } from './lib/scoring'
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
 import { copyText, shareResult, shareText } from './lib/share'
 import { href, navigate, useRoute } from './router'
 import { useTheme } from './theme'
+import { Tyre } from './Tyre'
 
 type Load = { state: 'loading' } | { state: 'error'; message: string } | { state: 'ready'; bank: Question[] }
 
@@ -250,7 +250,7 @@ function Game({ n, isToday, today, questions, progress, update }: GameProps) {
         {questions.map((q, i) => {
           const g = guesses[q.id]
           const done = g !== undefined
-          const label = done ? TIER_EMOJI[tier(offFactor(g, q.answer))] : String(i + 1)
+          const label = done ? <Tyre compound={compoundFor(offFactor(g, q.answer))} size={32} /> : String(i + 1)
           return (
             <li key={q.id}>
               <button
@@ -519,6 +519,7 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
               <li key={q.id}>
                 <span className="res-q">{q.prompt}</span>
                 <span className="res-f" aria-label={`${formatFactor(factors[i])} ${dir === 'exact' ? 'exact' : `too ${dir}`}`}>
+                  <Tyre compound={compoundFor(factors[i])} size={22} />
                   <span aria-hidden="true" className="res-dir">{dir === 'high' ? '↑' : dir === 'low' ? '↓' : '='}</span>
                   {formatFactor(factors[i])}
                 </span>
@@ -586,10 +587,9 @@ function Help({ onClose }: { onClose: () => void }) {
       </p>
       <p className="formula">times off = bigger number ÷ smaller number</p>
       <ul className="tiers">
-        <li>🟩 within 1.25×</li>
-        <li>🟨 within 2×</li>
-        <li>🟧 within 4×</li>
-        <li>🟥 further than that</li>
+        <li><Tyre compound="soft" size={22} /> Soft: within 1.5×</li>
+        <li><Tyre compound="medium" size={22} /> Medium: within 3×</li>
+        <li><Tyre compound="hard" size={22} /> Hard: further than that</li>
       </ul>
       <p>
         Your <b>daily score</b> is the average of your three “times off” numbers. Lower is better, and 1× is perfect:

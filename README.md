@@ -12,7 +12,7 @@ Undercut is a fan project. It is not affiliated with, endorsed by or connected t
 - One guess per question. Guesses are saved in `localStorage` and can never be changed, including in the archive.
 - A transparent times-off score (see [Scoring](#scoring)) that handles zero answers safely.
 - A results screen with the average times-off score, a finish badge, every question with its times-off number, played/streak/best-streak stats and a countdown to the next puzzle.
-- A spoiler-free share grid (`🟩🟨🟧🟥`). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
+- A spoiler-free share line with one tyre per question (`🔴🟡⚪` for soft/medium/hard). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
 - Dark mode by default, with a light/dark toggle in the header. The choice is remembered per browser and applied before the first paint, so there's no flash.
 - A finish badge (🏆/🥇/👍/⚠️) on each question's answer screen and on the results screen, using the same thresholds.
 - An archive of past puzzles at `/archive` and `/p/<n>`. No sign-in is needed.
@@ -52,12 +52,13 @@ Each guess is compared to the answer by how many *times* off it is, so being 2×
 factor = max(guess, answer) / min(guess, answer)     # 1 = exact
 ```
 
-| Times off | Tile |
+Each question also gets a tyre compound, shown as an original tyre icon in the app (no brand marks) and as an emoji in shared text:
+
+| Times off | Tyre |
 | --------- | ---- |
-| ≤ 1.25×   | 🟩   |
-| ≤ 2×      | 🟨   |
-| ≤ 4×      | 🟧   |
-| > 4×      | 🟥   |
+| ≤ 1.5×    | 🔴 Soft |
+| ≤ 3×      | 🟡 Medium |
+| > 3×      | ⚪ Hard |
 
 The **daily score** shown on the results screen is the plain average of the three factors (lower is better, 1× is perfect). It decides the finish badge:
 

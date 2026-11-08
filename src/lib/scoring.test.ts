@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { averageFactor, direction, finishFor, offFactor, tier } from './scoring'
+import { averageFactor, compoundFor, direction, finishFor, offFactor } from './scoring'
 
 describe('times off', () => {
   it('is 1 for an exact guess', () => {
@@ -23,13 +23,13 @@ describe('times off', () => {
     expect(() => offFactor(Number.NaN, 10)).toThrow(RangeError)
   })
 
-  it('maps factors to tiles at documented thresholds', () => {
-    expect(tier(1)).toBe(3)
-    expect(tier(1.25)).toBe(3)
-    expect(tier(1.26)).toBe(2)
-    expect(tier(2)).toBe(2)
-    expect(tier(4)).toBe(1)
-    expect(tier(4.01)).toBe(0)
+  it('maps factors to tyre compounds at documented thresholds', () => {
+    expect(compoundFor(1)).toBe('soft')
+    expect(compoundFor(1.5)).toBe('soft')
+    expect(compoundFor(1.51)).toBe('medium')
+    expect(compoundFor(3)).toBe('medium')
+    expect(compoundFor(3.01)).toBe('hard')
+    expect(compoundFor(1000)).toBe('hard')
   })
 
   it('reports direction', () => {

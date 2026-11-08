@@ -184,7 +184,7 @@ form { display: flex; flex-direction: column; gap: 8px; }
 .res-list { list-style: none; margin: 0; padding: 0; }
 .res-list li { display: flex; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .res-q { font-weight: 700; font-size: 1.02rem; line-height: 1.35; }
-.res-f { font: 800 1.35rem var(--display); white-space: nowrap; }
+.res-f { font: 800 1.35rem var(--display); white-space: nowrap; display: flex; align-items: center; gap: 6px; height: fit-content; }
 .res-dir { color: var(--muted); margin-right: 4px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: auto; }
 .stats div { background: var(--surface-2); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; text-align: center; }
@@ -226,6 +226,9 @@ form { display: flex; flex-direction: column; gap: 8px; }
 .modal ol, .modal ul { padding-left: 20px; }
 .modal li { margin: 6px 0; }
 .modal .tiers { list-style: none; padding: 0; }
+.modal .tiers li { display: flex; align-items: center; gap: 10px; }
+.tyre { display: block; flex-shrink: 0; }
+.step { display: flex; align-items: center; justify-content: center; }
 .modal .btn { width: 100%; margin-top: 12px; }
 .formula { font-family: var(--mono); background: var(--surface-2); padding: 10px 12px; border-radius: 10px; font-size: 0.9rem; }
 

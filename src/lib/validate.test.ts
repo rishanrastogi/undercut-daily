@@ -56,6 +56,6 @@ describe('progress', () => {
 describe('share text', () => {
   it('is spoiler-free: no guesses or answers, just the average, finish and tiles', () => {
     const t = shareText(4, 1.82, [1.1, 1.8, 12], 'https://example.com/')
-    expect(t).toBe('Undercut #4 · 1.82× 🏆\n🟩🟨🟥\nhttps://example.com/')
+    expect(t).toBe('Undercut #4 · 1.82× 🏆\n🔴🟡⚪\nhttps://example.com/')
   })
 })
