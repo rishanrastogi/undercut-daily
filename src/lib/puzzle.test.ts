@@ -37,8 +37,14 @@ describe('question selection', () => {
     expect(questionsForPuzzle(3, reversed).map((q) => q.id)).toEqual(questionsForPuzzle(3, bank).map((q) => q.id))
   })
 
+  it('serves easy, medium, hard in that order every day', () => {
+    for (let n = 1; n <= 60; n++) {
+      expect(questionsForPuzzle(n, bank).map((q) => q.difficulty)).toEqual(['easy', 'medium', 'hard'])
+    }
+  })
+
   it('never repeats a question within a cycle', () => {
-    const days = Math.floor(bank.length / 3)
+    const days = Math.min(...(['easy', 'medium', 'hard'] as const).map((d) => bank.filter((q) => q.difficulty === d).length))
     for (const cycle of [0, 1, 5]) {
       const ids = Array.from({ length: days }, (_, i) => questionsForPuzzle(cycle * days + i + 1, bank))
         .flat()

@@ -1,11 +1,12 @@
-import { COMPOUND, type Compound } from './lib/scoring'
+import { TYRE } from './lib/scoring'
+import type { Difficulty } from './lib/types'
 
 /** Original side-on tyre drawing: black rubber, coloured compound band, silver rim. No brand marks. */
-export function Tyre({ compound, size = 28 }: { compound: Compound; size?: number }) {
-  const { label, color } = COMPOUND[compound]
+export function Tyre({ difficulty, size = 28 }: { difficulty: Difficulty; size?: number }) {
+  const { label, difficulty: name, color } = TYRE[difficulty]
   return (
-    <svg className="tyre" width={size} height={size} viewBox="0 0 32 32" role="img" aria-label={`${label} tyre`}>
-      <title>{`${label} tyre`}</title>
+    <svg className="tyre" width={size} height={size} viewBox="0 0 32 32" role="img" aria-label={`${label} tyre: ${name.toLowerCase()} question`}>
+      <title>{`${label} tyre: ${name.toLowerCase()} question`}</title>
       <circle cx="16" cy="16" r="15" fill="#151515" stroke="#3d3d3d" strokeWidth="1" />
       <circle cx="16" cy="16" r="11.4" fill="none" stroke={color} strokeWidth="3" />
       <circle cx="16" cy="16" r="8.2" fill="#2a2a2a" />

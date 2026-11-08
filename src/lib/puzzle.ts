@@ -1,4 +1,4 @@
-import type { Question } from './types'
+import { DIFFICULTIES, type Question } from './types'
 
 /** Puzzle #1 is this UTC date. Every player worldwide gets the same puzzle per UTC day. */
 export const LAUNCH_DATE = '2026-11-08'
@@ -46,18 +46,18 @@ function seededShuffle<T>(items: T[], seed: number): T[] {
 }
 
 /**
- * Questions are sorted by id (so file order does not matter), then shuffled
- * once per "cycle" with a seed derived from the cycle number. Each day takes
- * the next three questions from the current cycle, so no question repeats
- * within a cycle and a day never mixes two cycles.
+ * Each day serves one easy, one medium and one hard question, in that order.
+ * Each difficulty pool is sorted by id (so file order does not matter), then
+ * shuffled once per "cycle" with a seed derived from the cycle and the
+ * difficulty. A cycle lasts as many days as the smallest pool has questions,
+ * so no question repeats within a cycle.
  */
 export function questionsForPuzzle(n: number, bank: Question[]): Question[] {
   if (n < 1) throw new RangeError('Puzzle numbers start at 1')
-  const daysPerCycle = Math.floor(bank.length / QUESTIONS_PER_DAY)
-  if (daysPerCycle < 1) throw new Error(`Need at least ${QUESTIONS_PER_DAY} questions`)
-  const sorted = bank.slice().sort((a, b) => a.id.localeCompare(b.id))
+  const pools = DIFFICULTIES.map((d) => bank.filter((q) => q.difficulty === d).sort((a, b) => a.id.localeCompare(b.id)))
+  const daysPerCycle = Math.min(...pools.map((p) => p.length))
+  if (daysPerCycle < 1) throw new Error('Need at least one easy, one medium and one hard question')
   const cycle = Math.floor((n - 1) / daysPerCycle)
   const slot = (n - 1) % daysPerCycle
-  const order = seededShuffle(sorted, 0x9e3779b1 ^ (cycle + 1))
-  return order.slice(slot * QUESTIONS_PER_DAY, slot * QUESTIONS_PER_DAY + QUESTIONS_PER_DAY)
+  return pools.map((pool, i) => seededShuffle(pool, (0x9e3779b1 ^ (cycle + 1)) + i * 7919)[slot])
 }

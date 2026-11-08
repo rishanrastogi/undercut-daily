@@ -1,4 +1,4 @@
-import type { Question } from './types'
+import { DIFFICULTIES, type Question } from './types'
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/
 const ID = /^[a-z0-9]+(-[a-z0-9]+)*$/
@@ -26,6 +26,9 @@ export function validateQuestions(data: unknown, now: Date = new Date()): string
   const errors: string[] = []
   if (!Array.isArray(data)) return ['Question file must be a JSON array']
   if (data.length < 3) errors.push('Need at least 3 questions')
+  for (const d of DIFFICULTIES) {
+    if (!data.some((q) => (q as Partial<Question>)?.difficulty === d)) errors.push(`Need at least one ${d} question`)
+  }
   const seen = new Set<string>()
   data.forEach((raw, i) => {
     const q = raw as Partial<Question>
@@ -46,6 +49,7 @@ export function validateQuestions(data: unknown, now: Date = new Date()): string
     if (q.corroborationUrl !== undefined && !isUrl(q.corroborationUrl)) {
       errors.push(`${at}: corroborationUrl must be an https URL`)
     }
+    if (!DIFFICULTIES.includes(q.difficulty!)) errors.push(`${at}: difficulty must be "easy", "medium" or "hard"`)
     if (q.sourceType !== 'reported' && q.sourceType !== 'calculated') {
       errors.push(`${at}: sourceType must be "reported" or "calculated"`)
     }

@@ -8,7 +8,7 @@ import {
   finishFor,
   formatFactor,
   offFactor,
-  compoundFor,
+  TYRE,
 } from './lib/scoring'
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
 import { copyText, shareResult, shareText } from './lib/share'
@@ -251,7 +251,7 @@ function Game({ n, isToday, today, questions, progress, update }: GameProps) {
         {questions.map((q, i) => {
           const g = guesses[q.id]
           const done = g !== undefined
-          const label = done ? <Tyre compound={compoundFor(offFactor(g, q.answer))} size={32} /> : String(i + 1)
+          const label = <Tyre difficulty={q.difficulty} size={32} />
           return (
             <li key={q.id}>
               <button
@@ -344,7 +344,10 @@ function QuestionCard({ index, total, q, guess, onSubmit, onNext, isLast }: Card
   return (
     <article className={`card ${answered ? 'answered' : ''}`} aria-labelledby={`q-${q.id}`}>
       <p className="eyebrow">
-        Question {index + 1} of {total} · {q.season} season
+        <Tyre difficulty={q.difficulty} size={22} />
+        <span>
+          Question {index + 1} of {total} · {TYRE[q.difficulty].difficulty} · {q.season} season
+        </span>
       </p>
       <h2 id={`q-${q.id}`} className="prompt">{q.prompt}</h2>
 
@@ -520,9 +523,11 @@ function Results({ n, isToday, today, questions, guesses, progress }: ResultsPro
             const dir = direction(guesses[q.id], q.answer)
             return (
               <li key={q.id}>
-                <span className="res-q">{q.prompt}</span>
+                <span className="res-q">
+                  <Tyre difficulty={q.difficulty} size={22} />
+                  <span>{q.prompt}</span>
+                </span>
                 <span className="res-f" aria-label={`${formatFactor(factors[i])} ${dir === 'exact' ? 'exact' : `too ${dir}`}`}>
-                  <Tyre compound={compoundFor(factors[i])} size={22} />
                   <span aria-hidden="true" className="res-dir">{dir === 'high' ? '↑' : dir === 'low' ? '↓' : '='}</span>
                   {formatFactor(factors[i])}
                 </span>
@@ -580,20 +585,22 @@ function Help({ onClose }: { onClose: () => void }) {
     <dialog ref={ref} className="modal" onClose={onClose} aria-labelledby="help-title">
       <h2 id="help-title">How to play</h2>
       <ol>
-        <li>Each day brings <b>three race-stat questions</b>, the same for everyone. A new puzzle unlocks at midnight UTC.</li>
+        <li>Each day brings <b>three race-stat questions</b> (one easy, one medium, one hard), the same for everyone. A new puzzle unlocks at midnight UTC.</li>
         <li>You get <b>one guess per question</b>. Think it through, maybe do some napkin math, then lock it in.</li>
         <li>After each guess you see the real answer, how far off you were, and where the number comes from.</li>
       </ol>
+      <h3>Tyres</h3>
+      <p>Every day runs easy, then medium, then hard. The tyre shows each question's difficulty.</p>
+      <ul className="tiers">
+        <li><Tyre difficulty="easy" size={22} /> Soft tyre: easy question</li>
+        <li><Tyre difficulty="medium" size={22} /> Medium tyre: medium question</li>
+        <li><Tyre difficulty="hard" size={22} /> Hard tyre: hard question</li>
+      </ul>
       <h3>Scoring</h3>
       <p>
         We measure how many <i>times</i> off you were, so 2× too high and 2× too low count the same. 1× is perfect.
       </p>
       <p className="formula">times off = bigger number ÷ smaller number</p>
-      <ul className="tiers">
-        <li><Tyre compound="soft" size={22} /> Soft: within 1.5×</li>
-        <li><Tyre compound="medium" size={22} /> Medium: within 3×</li>
-        <li><Tyre compound="hard" size={22} /> Hard: further than that</li>
-      </ul>
       <p>
         Your <b>daily score</b> is the average of your three “times off” numbers. Lower is better, and 1× is perfect:
       </p>

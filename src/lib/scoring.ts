@@ -28,20 +28,11 @@ export function direction(guess: number, answer: number): Direction {
   return guess > answer ? 'high' : 'low'
 }
 
-export type Compound = 'soft' | 'medium' | 'hard'
-
-/** Tyre for one question: soft within 1.5×, medium within 3×, hard beyond. */
-export function compoundFor(factor: number): Compound {
-  if (factor <= 1.5) return 'soft'
-  if (factor <= 3) return 'medium'
-  return 'hard'
-}
-
-/** Band colours follow the usual soft/medium/hard convention. The emoji stand in for tyres in plain-text shares. */
-export const COMPOUND = {
-  soft: { label: 'Soft', color: '#e8202a', emoji: '🔴' },
-  medium: { label: 'Medium', color: '#f5c400', emoji: '🟡' },
-  hard: { label: 'Hard', color: '#f4f4f4', emoji: '⚪' },
+/** Tyre shown for each difficulty. Band colours follow the usual soft/medium/hard convention. */
+export const TYRE = {
+  easy: { label: 'Soft', difficulty: 'Easy', color: '#e8202a' },
+  medium: { label: 'Medium', difficulty: 'Medium', color: '#f5c400' },
+  hard: { label: 'Hard', difficulty: 'Hard', color: '#f4f4f4' },
 } as const
 
 export function formatFactor(f: number): string {

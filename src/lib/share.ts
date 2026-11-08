@@ -1,8 +1,8 @@
-import { COMPOUND, compoundFor, FINISH, finishFor, formatFactor } from './scoring'
+import { FINISH, finishFor, formatFactor } from './scoring'
 
-/** Spoiler-free: puzzle number, average times-off, finish icon and one tyre per question. No guesses or answers. */
+/** Spoiler-free: puzzle number, average times-off, finish icon and one finish emoji per question. No guesses or answers. */
 export function shareText(puzzle: number, avgFactor: number, factors: number[], url: string): string {
-  const grid = factors.map((f) => COMPOUND[compoundFor(f)].emoji).join('')
+  const grid = factors.map((f) => FINISH[finishFor(f)].shareEmoji).join('')
   return `Undercut #${puzzle} · ${formatFactor(avgFactor)} ${FINISH[finishFor(avgFactor)].shareEmoji}\n${grid}\n${url}`
 }
 

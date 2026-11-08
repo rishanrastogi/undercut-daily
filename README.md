@@ -8,11 +8,11 @@ Undercut is a fan project. It is not affiliated with, endorsed by or connected t
 
 ## Features
 
-- Three questions per day, the same for every player. The puzzle number comes from the UTC date (puzzle #1 = 2026-11-08).
+- Three questions per day, the same for every player: one easy, one medium and one hard, in that order. A tyre icon shows the difficulty (soft = easy, medium = medium, hard = hard). The puzzle number comes from the UTC date (puzzle #1 = 2026-11-08).
 - One guess per question. Guesses are saved in `localStorage` and can never be changed, including in the archive.
 - A transparent times-off score (see [Scoring](#scoring)) that handles zero answers safely.
 - A results screen with the average times-off score, a finish badge, every question with its times-off number, played/streak/best-streak stats and a countdown to the next puzzle.
-- A spoiler-free share line with one tyre per question (`🔴🟡⚪` for soft/medium/hard). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
+- A spoiler-free share line with the average, the finish badge and one finish emoji per question (for example `🏆🥇⚠️`). **Share** uses the Web Share API where available and falls back to the clipboard; **Copy text** always copies.
 - Dark mode by default, with a light/dark toggle in the header. The choice is remembered per browser and applied before the first paint, so there's no flash.
 - A finish badge (trophy, medal, thumbs up or warning) on each question's answer screen and on the results screen, using the same thresholds. All in-app icons are original monochrome SVGs in `src/Icons.tsx` and `src/Tyre.tsx`. Emoji are only used in plain-text shares.
 - An archive of past puzzles at `/archive` and `/p/<n>`. No sign-in is needed.
@@ -52,14 +52,6 @@ Each guess is compared to the answer by how many *times* off it is, so being 2×
 factor = max(guess, answer) / min(guess, answer)     # 1 = exact
 ```
 
-Each question also gets a tyre compound, shown as an original tyre icon in the app (no brand marks) and as an emoji in shared text:
-
-| Times off | Tyre |
-| --------- | ---- |
-| ≤ 1.5×    | 🔴 Soft |
-| ≤ 3×      | 🟡 Medium |
-| > 3×      | ⚪ Hard |
-
 The **daily score** shown on the results screen is the plain average of the three factors (lower is better, 1× is perfect). It decides the finish badge:
 
 | Average times off | Badge |
@@ -76,10 +68,12 @@ The **daily score** shown on the results screen is the plain average of the thre
 `src/lib/puzzle.ts`:
 
 1. `puzzleNumberFor(date)` is the number of whole UTC days since `LAUNCH_DATE`, plus 1.
-2. The question bank is sorted by `id`, so the order of entries in the file doesn't matter.
-3. The bank is split into *cycles* of `floor(N / 3)` days. Each cycle uses a seeded (mulberry32) shuffle keyed on the cycle number. Day *k* of a cycle takes questions `3k..3k+2`, so no question repeats within a cycle.
+2. Questions are split into easy, medium and hard pools. Each pool is sorted by `id`, so the order of entries in the file doesn't matter.
+3. A *cycle* lasts as many days as the smallest pool has questions. Each pool gets its own seeded (mulberry32) shuffle per cycle, and day *k* of a cycle takes the *k*-th question from each pool, served easy → medium → hard. No question repeats within a cycle.
 
-Adding or removing questions changes the schedule for future puzzles. Players who already played a puzzle keep the questions they answered, because the app stores the question IDs alongside the guesses. If you need past puzzles to stay identical for new visitors too, only add questions in multiples that start a new cycle, or pin a schedule.
+Keep the three pools the same size (currently 7 each). Extra questions in a bigger pool only show up in later cycles.
+
+Adding or removing questions changes the schedule for future puzzles. Players who already played a puzzle keep the questions they answered, because the app stores the question IDs alongside the guesses.
 
 ## Content format
 
@@ -91,6 +85,7 @@ Questions live in **`public/questions.json`**, separate from the UI code. The ap
   "prompt": "How many championship points did …?",
   "answer": 575,                      // finite, non-negative number
   "unit": "points",
+  "difficulty": "medium",             // "easy" | "medium" | "hard" (shown as soft / medium / hard tyre)
   "season": 2023,
   "sourceDate": "2023-12-31",         // YYYY-MM-DD the figure is final as of (not in the future)
   "sourceName": "Jolpica F1 API (Ergast-compatible)",
@@ -103,7 +98,7 @@ Questions live in **`public/questions.json`**, separate from the UI code. The ap
 }
 ```
 
-`npm run validate` (and CI) checks for required fields, kebab-case and unique IDs, numeric answers, real and non-future dates, https source URLs, and a valid `sourceType`.
+`npm run validate` (and CI) checks for required fields, a valid `difficulty` (with at least one question of each), kebab-case and unique IDs, numeric answers, real and non-future dates, https source URLs, and a valid `sourceType`.
 
 ### Reported vs calculated
 
@@ -121,7 +116,7 @@ The UI shows this as a *Reported* or *Calculated* badge in the "Source & method"
    curl -s https://api.jolpi.ca/ergast/f1/2023/driverstandings.json | jq '.MRData.StandingsTable.StandingsLists[0].DriverStandings[0] | {points, wins}'
    curl -s https://api.jolpi.ca/ergast/f1/2023/13/pitstops.json | jq '.MRData.total'
    ```
-4. Fill in every field. Say whether the value is reported or calculated, and write down any limitations in `calculationNotes`.
+4. Fill in every field, including a `difficulty`. Easy = small, well-known counts; medium = season points totals; hard = big sums and counts few people track. Say whether the value is reported or calculated, and write down any limitations in `calculationNotes`.
 5. Run `npm run validate && npm test`.
 6. If you can't find a reliable source or reproduce the calculation, **leave the question out**.
 

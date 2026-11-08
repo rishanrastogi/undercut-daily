@@ -22,6 +22,7 @@ describe('content validation', () => {
       { ...good, id: 'd', definition: '' },
       { ...good, id: 'e', sourceType: 'guess' },
       { ...good, id: 'f', sourceDate: '2999-01-01' },
+      { ...good, id: 'g', difficulty: 'extreme' },
     ]
     const errs = validateQuestions(bad).join('\n')
     expect(errs).toMatch(/a\).*answer/)
@@ -30,6 +31,12 @@ describe('content validation', () => {
     expect(errs).toMatch(/d\).*definition/)
     expect(errs).toMatch(/e\).*sourceType/)
     expect(errs).toMatch(/f\).*future/)
+    expect(errs).toMatch(/g\).*difficulty/)
+  })
+
+  it('requires every difficulty to be present', () => {
+    const onlyEasy = bank.filter((q: { difficulty: string }) => q.difficulty === 'easy')
+    expect(validateQuestions(onlyEasy).join()).toMatch(/at least one medium question/)
   })
 
   it('flags duplicate ids', () => {
@@ -56,6 +63,6 @@ describe('progress', () => {
 describe('share text', () => {
   it('is spoiler-free: no guesses or answers, just the average, finish and tiles', () => {
     const t = shareText(4, 1.82, [1.1, 1.8, 12], 'https://example.com/')
-    expect(t).toBe('Undercut #4 · 1.82× 🏆\n🔴🟡⚪\nhttps://example.com/')
+    expect(t).toBe('Undercut #4 · 1.82× 🏆\n🏆🏆⚠️\nhttps://example.com/')
   })
 })
