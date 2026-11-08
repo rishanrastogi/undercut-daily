@@ -54,8 +54,8 @@ describe('progress', () => {
 })
 
 describe('share text', () => {
-  it('is spoiler-free: no guesses or answers, just tiers and total', () => {
-    const t = shareText(4, [95, 72, 10], 'https://example.com/')
-    expect(t).toBe('Undercut #4 · 177/300\n🟩🟨🟥\nhttps://example.com/')
+  it('is spoiler-free: no guesses or answers, just the average, finish and tiles', () => {
+    const t = shareText(4, 1.82, [95, 72, 10], 'https://example.com/')
+    expect(t).toBe('Undercut #4 · 1.82× 🏆\n🟩🟨🟥\nhttps://example.com/')
   })
 })

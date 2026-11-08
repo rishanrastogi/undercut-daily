@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { direction, offFactor, scoreGuess, tier } from './scoring'
+import { averageFactor, direction, finishFor, offFactor, scoreGuess, tier } from './scoring'
 
 describe('scoring', () => {
   it('gives 100 for an exact guess', () => {
@@ -43,5 +43,22 @@ describe('scoring', () => {
     expect(direction(5, 5)).toBe('exact')
     expect(direction(6, 5)).toBe('high')
     expect(direction(4, 5)).toBe('low')
+  })
+})
+
+describe('daily average and finish', () => {
+  it('averages factors', () => {
+    expect(averageFactor([3.4, 1.09, 1.63])).toBeCloseTo(2.04, 2)
+    expect(averageFactor([])).toBe(1)
+  })
+
+  it('maps the average to a finish at the documented boundaries', () => {
+    expect(finishFor(1)).toBe('win')
+    expect(finishFor(2)).toBe('win')
+    expect(finishFor(2.01)).toBe('podium')
+    expect(finishFor(4.99)).toBe('podium')
+    expect(finishFor(5)).toBe('points')
+    expect(finishFor(10)).toBe('points')
+    expect(finishFor(10.01)).toBe('crash')
   })
 })

@@ -54,3 +54,26 @@ export function formatFactor(f: number): string {
   if (f < 1.005) return '1.00×'
   return f < 10 ? `${f.toFixed(2)}×` : `${Math.round(f)}×`
 }
+
+/** Daily headline score: the plain average of the three times-off factors (lower is better, 1× is perfect). */
+export function averageFactor(factors: number[]): number {
+  if (factors.length === 0) return 1
+  return factors.reduce((a, b) => a + b, 0) / factors.length
+}
+
+export type Finish = 'win' | 'podium' | 'points' | 'crash'
+
+/** ≤2× race win, <5× podium, ≤10× points finish, anything worse is a crash. */
+export function finishFor(avg: number): Finish {
+  if (avg <= 2) return 'win'
+  if (avg < 5) return 'podium'
+  if (avg <= 10) return 'points'
+  return 'crash'
+}
+
+export const FINISH = {
+  win: { icon: '🏆', label: 'Race win' },
+  podium: { icon: '🥇', label: 'Podium finish' },
+  points: { icon: '👍', label: 'Points finish' },
+  crash: { icon: '⚠️', label: 'Crashed out' },
+} as const

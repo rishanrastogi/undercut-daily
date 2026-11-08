@@ -2,7 +2,10 @@ import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type
 import type { Question } from './lib/types'
 import { dateForPuzzle, puzzleNumberFor, questionsForPuzzle } from './lib/puzzle'
 import {
+  averageFactor,
   direction,
+  FINISH,
+  finishFor,
   formatFactor,
   offFactor,
   scoreGuess,
@@ -10,7 +13,7 @@ import {
   TIER_EMOJI,
 } from './lib/scoring'
 import { loadProgress, recordGuess, saveProgress, streaks, type Progress } from './lib/storage'
-import { shareResult, shareText } from './lib/share'
+import { copyText, shareResult, shareText } from './lib/share'
 import { href, navigate, useRoute } from './router'
 
 type Load = { state: 'loading' } | { state: 'error'; message: string } | { state: 'ready'; bank: Question[] }
@@ -453,56 +456,69 @@ interface ResultsProps {
 }
 
 function Results({ n, isToday, today, questions, guesses, progress }: ResultsProps) {
+  const factors = questions.map((q) => offFactor(guesses[q.id], q.answer))
   const points = questions.map((q) => scoreGuess(guesses[q.id], q.answer))
   const total = points.reduce((a, b) => a + b, 0)
+  const avg = averageFactor(factors)
+  const finish = FINISH[finishFor(avg)]
   const s = useMemo(() => streaks(progress, today), [progress, today])
   const [msg, setMsg] = useState('')
   const countdown = useCountdown()
 
-  const share = async () => {
-    const url = location.origin + href('/')
-    const r = await shareResult(shareText(n, points, url))
+  const run = async (how: 'share' | 'copy') => {
+    const text = shareText(n, avg, points, location.origin + href('/'))
+    const r = how === 'share' ? await shareResult(text) : await copyText(text)
     setMsg(
-      r === 'copied' ? 'Copied to clipboard!' : r === 'shared' ? 'Shared!' : r === 'cancelled' ? '' : "Couldn't share. Try copying manually.",
+      r === 'copied' ? 'Copied to clipboard!' : r === 'shared' ? 'Shared!' : r === 'cancelled' ? '' : "Couldn't copy. Your browser blocked it.",
     )
   }
 
   return (
     <article className="card results" aria-labelledby="res-title">
-      <p className="eyebrow">Chequered flag</p>
-      <h2 id="res-title" className="total">
-        {total}
-        <small>/{questions.length * 100}</small>
-      </h2>
-      <p className="grid" aria-label="Score grid">{points.map((p) => TIER_EMOJI[tier(p)]).join(' ')}</p>
-      <table className="breakdown">
-        <caption className="sr-only">Score breakdown</caption>
-        <thead>
-          <tr><th scope="col">Question</th><th scope="col">Guess</th><th scope="col">Answer</th><th scope="col">Pts</th></tr>
-        </thead>
-        <tbody>
-          {questions.map((q, i) => (
-            <tr key={q.id}>
-              <th scope="row">{i + 1}. {q.unit}</th>
-              <td>{fmt(guesses[q.id])}</td>
-              <td>{fmt(q.answer)}</td>
-              <td>{points[i]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button className="btn primary" onClick={share}>Share result</button>
-      <p className="hint" aria-live="polite">{msg}</p>
-      <div className="stats">
-        <div><strong>{s.played}</strong><span>Played</span></div>
-        <div><strong>{s.current}</strong><span>Streak</span></div>
-        <div><strong>{s.best}</strong><span>Best streak</span></div>
+      <div className="res-left">
+        <p className="res-lbl" id="res-title">Score</p>
+        <p className="res-score" aria-describedby="res-explain">{formatFactor(avg)}</p>
+        <p id="res-explain" className="res-sub">
+          Average times off across {questions.length} questions · {total} / {questions.length * 100} points
+        </p>
+        <div className="finish-box" role="img" aria-label={finish.label}>
+          <span className="finish-icon" aria-hidden="true">{finish.icon}</span>
+          <span className="finish-label">{finish.label}</span>
+        </div>
+        <div className="res-actions">
+          <button className="btn pill solid" onClick={() => run('share')}>Share</button>
+          <button className="btn pill outline" onClick={() => run('copy')}>Copy text</button>
+        </div>
+        <p className="hint" aria-live="polite">{msg}</p>
       </div>
-      {isToday ? (
-        <p className="next">Next puzzle in <span className="num">{countdown}</span></p>
-      ) : (
-        <Link to="/" className="btn">Play today's puzzle</Link>
-      )}
+
+      <div className="res-right">
+        <p className="res-lbl">Questions</p>
+        <ol className="res-list">
+          {questions.map((q, i) => {
+            const dir = direction(guesses[q.id], q.answer)
+            return (
+              <li key={q.id}>
+                <span className="res-q">{q.prompt}</span>
+                <span className="res-f" aria-label={`${formatFactor(factors[i])} ${dir === 'exact' ? 'exact' : `too ${dir}`}`}>
+                  <span aria-hidden="true" className="res-dir">{dir === 'high' ? '↑' : dir === 'low' ? '↓' : '='}</span>
+                  {formatFactor(factors[i])}
+                </span>
+              </li>
+            )
+          })}
+        </ol>
+        <div className="stats">
+          <div><strong>{s.played}</strong><span>Played</span></div>
+          <div><strong>{s.current}</strong><span>Streak</span></div>
+          <div><strong>{s.best}</strong><span>Best</span></div>
+        </div>
+        {isToday ? (
+          <p className="next">Next puzzle in <span className="mono">{countdown}</span></p>
+        ) : (
+          <Link to="/" className="btn">Play today's puzzle</Link>
+        )}
+      </div>
     </article>
   )
 }
@@ -558,6 +574,10 @@ function Help({ onClose }: { onClose: () => void }) {
         <li>🟧 within 4×, 40+</li>
         <li>🟥 further than that. 10× off or worse scores 0.</li>
       </ul>
+      <p>
+        Your <b>daily score</b> is the average of your three “times off” numbers. Lower is better, and 1× is perfect:
+        🏆 2× or better, 🥇 under 5×, 👍 up to 10×, ⚠️ worse than 10×.
+      </p>
       <p className="hint">If an answer is 0, both numbers get +1 before comparing, so nothing breaks.</p>
       <p className="hint">Every answer comes from published historical race results, and each one links to its source.</p>
       <button className="btn primary" onClick={() => ref.current?.close()} autoFocus>Let's go</button>
