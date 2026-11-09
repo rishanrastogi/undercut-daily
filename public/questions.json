@@ -11,8 +11,9 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points total for Max Verstappen in 2023, including Grand Prix, sprint and fastest-lap points.",
     "calculationNotes": "Read directly from the final (round 22) drivers' standings.",
+    "fact": "Max Verstappen won 10 races in a row, from Miami to Monza, a new record.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "22 races, won 19 of them. A win is worth 25, plus sprints on top.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -27,8 +28,9 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points total for Red Bull Racing in 2023.",
     "calculationNotes": "Read directly from the final constructors' standings.",
+    "fact": "Carlos Sainz in Singapore was the only driver outside Red Bull to win a Grand Prix all year.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "Two cars, 21 wins from 22 races. First and second pays 43.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -43,8 +45,9 @@
     "sourceType": "calculated",
     "definition": "Difference between Max Verstappen's (575) and Sergio Pérez's (285) final 2023 drivers' championship totals.",
     "calculationNotes": "575 − 285 = 290, using the final round-22 standings.",
+    "fact": "The Las Vegas Grand Prix raced along the Strip on a Saturday night.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "Same car, but one driver won 19 races and the other won 2.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -59,8 +62,9 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points total for McLaren in 2024.",
     "calculationNotes": "Read directly from the final (round 24) constructors' standings.",
+    "fact": "The calendar had a record 24 Grands Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "24 races, a close fight to the end, and both cars scoring regularly.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -75,8 +79,9 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points total for Lando Norris in 2024.",
     "calculationNotes": "Read directly from the final round-24 drivers' standings.",
+    "fact": "McLaren won the constructors' title for the first time since 1998.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "Four wins, lots of podiums, and 24 rounds plus sprints.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -91,8 +96,9 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points total for Max Verstappen in 2024.",
     "calculationNotes": "Read directly from the final round-24 drivers' standings.",
+    "fact": "Lando Norris took his first Grand Prix win in Miami.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "Nine wins this time, after a dominant start to the year.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -107,8 +113,9 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points total for Ferrari in 2024.",
     "calculationNotes": "Read directly from the final constructors' standings. Ferrari finished 14 points behind McLaren (666).",
+    "fact": "The calendar had a record 24 Grands Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "They missed the title by a margin smaller than one race win.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -123,8 +130,9 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers who were classified first in a 2024 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Collected the winner of each of the 24 Grands Prix and counted unique drivers: Verstappen, Norris, Leclerc, Piastri, Sainz, Russell and Hamilton.",
+    "fact": "McLaren won the constructors' title for the first time since 1998.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "After 2023, when only three drivers won, the 2024 season was much more open.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -139,8 +147,9 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins credited to Red Bull Racing in the final 2023 constructors' standings. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final constructors' standings.",
+    "fact": "Max Verstappen won 10 races in a row, from Miami to Monza, a new record.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "Only one other team won a race all year.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -155,8 +164,9 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Max Verstappen in 2023. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final drivers' standings.",
+    "fact": "Carlos Sainz in Singapore was the only driver outside Red Bull to win a Grand Prix all year.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "A record season out of 22 races.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -171,7 +181,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 22 Grand Prix race results of 2023. Sprint points are excluded. The fastest-lap bonus point is included when it was awarded.",
     "calculationNotes": "Summed the 'points' field across all 440 Grand Prix result rows. The check: 22 × (25+18+15+12+10+8+6+4+2+1) = 2,222, plus 20 fastest-lap bonus points. The bonus is only given to a top-10 finisher, so it was not awarded in 2 races.",
-    "napkin": "The top 10 share 101 points per race. Multiply by the number of races.",
+    "fact": "The Las Vegas Grand Prix raced along the Strip on a Saturday night.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -186,8 +197,9 @@
     "sourceType": "reported",
     "definition": "Laps completed by the race winner at the 2023 Monaco Grand Prix (round 6).",
     "calculationNotes": "Read directly from the winner's 'laps' field in the race result.",
+    "fact": "Max Verstappen won from pole, while Fernando Alonso finished second as rain arrived late on.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Monaco_Grand_Prix",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Monaco_Grand_Prix",
-    "napkin": "Races are roughly 305 km. The lap here is about 3.3 km.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -202,7 +214,8 @@
     "sourceType": "calculated",
     "definition": "Sum of laps completed by Max Verstappen in all 22 Grands Prix of 2023. Sprints are excluded.",
     "calculationNotes": "Summed the 'laps' field of his 22 race results. That equals the winner's lap count of every race combined, because he completed every racing lap of the season.",
-    "napkin": "22 races at roughly 60 laps each.",
+    "fact": "Max Verstappen won 10 races in a row, from Miami to Monza, a new record.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -217,8 +230,9 @@
     "sourceType": "reported",
     "definition": "Laps completed by the race winner at the 2023 Belgian Grand Prix (round 12).",
     "calculationNotes": "Read directly from the winner's 'laps' field.",
+    "fact": "Max Verstappen won from sixth on the grid after a gearbox penalty.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Belgian_Grand_Prix",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Belgian_Grand_Prix",
-    "napkin": "This is the longest lap on the calendar, at about 7 km.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -233,8 +247,9 @@
     "sourceType": "reported",
     "definition": "Laps completed by the race winner at the 2024 São Paulo Grand Prix (round 21).",
     "calculationNotes": "Read directly from the winner's 'laps' field. The race was scheduled for 71 laps but was shortened after an aborted start procedure in wet conditions.",
+    "fact": "Max Verstappen won from 17th on the grid in the rain.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_S%C3%A3o_Paulo_Grand_Prix",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_S%C3%A3o_Paulo_Grand_Prix",
-    "napkin": "The usual distance at Interlagos is 71 laps. This wet race was slightly shorter.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -249,8 +264,9 @@
     "sourceType": "reported",
     "definition": "Number of World Championship Grands Prix held in 2024.",
     "calculationNotes": "Read directly from the 'total' field of the season race list.",
+    "fact": "Lando Norris took his first Grand Prix win in Miami.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship",
-    "napkin": "It was a record-length calendar at the time.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -265,7 +281,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries in the Jolpica (Ergast-compatible) pit stop dataset across all 22 Grands Prix of 2023. Sprints are excluded.",
     "calculationNotes": "Summed the 'total' field from https://api.jolpi.ca/ergast/f1/2023/{round}/pitstops.json for rounds 1–22. The source URL shows round 1, and the rest follow the same pattern. Limitation: the dataset logs pit lane stops from official timing. Tyre changes made during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "20 cars, 22 races, and usually one or two stops each, with some wet chaos added.",
+    "fact": "Carlos Sainz in Singapore was the only driver outside Red Bull to win a Grand Prix all year.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -280,7 +297,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2023 Dutch Grand Prix (round 13) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Changing weather meant several rounds of tyre changes. Limitation: this is the dataset's count, not an official FIA figure.",
-    "napkin": "There were 20 cars, and the race went dry, then wet, then dry, then wet again.",
+    "fact": "Max Verstappen's win equalled Sebastian Vettel's record of nine wins in a row.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Dutch_Grand_Prix",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -295,8 +313,9 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2024 Monaco Grand Prix (round 8) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. A lap-1 red flag let teams change tyres without a timed stop, so few were logged. Limitation: this is the dataset's count, not an official FIA figure.",
+    "fact": "Charles Leclerc became the first driver from Monaco to win his home race since 1931.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Monaco_Grand_Prix",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2024_Monaco_Grand_Prix",
-    "napkin": "The race was red-flagged on lap 1, and nobody wants to give up track position in Monaco.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -311,7 +330,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2024 Qatar Grand Prix (round 23) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: this is the dataset's count, not an official FIA figure.",
-    "napkin": "The track is hard on tyres, and there were safety cars and penalties along the way.",
+    "fact": "Max Verstappen won from second on the grid after being demoted from pole for impeding George Russell.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Qatar_Grand_Prix",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -326,8 +346,9 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points total for Mercedes in 2023.",
     "calculationNotes": "Read directly from the final constructors' standings. Ferrari was third on 406.",
+    "fact": "The Las Vegas Grand Prix raced along the Strip on a Saturday night.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
     "corroborationUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-    "napkin": "They had no wins, but two cars scored steadily.",
     "sourceName": "Jolpica F1 API (Ergast-compatible)"
   },
   {
@@ -344,7 +365,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2014 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 19) drivers' standings.",
-    "napkin": "There were 19 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "2014 was the first season of 1.6-litre V6 turbo-hybrid engines, and Mercedes won 16 of the 19 races.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2014",
@@ -360,7 +382,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2014 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 19 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Daniel Ricciardo was the only winner outside Mercedes, taking three victories in his first Red Bull season, starting in Canada.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2014",
@@ -376,7 +399,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2014, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 19) drivers' standings.",
-    "napkin": "19 races with 25 points for a win, and 11 wins for the champion."
+    "fact": "The finale in Abu Dhabi was worth double points, a one-off rule that was dropped after the season.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2014",
@@ -392,7 +416,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2014.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 19 races."
+    "fact": "2014 was the first season of 1.6-litre V6 turbo-hybrid engines, and Mercedes won 16 of the 19 races.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2014",
@@ -408,7 +433,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2014 champion (Hamilton) and second place (Rosberg).",
     "calculationNotes": "384 − 317 = 67, from the final round-19 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Daniel Ricciardo was the only winner outside Mercedes, taking three victories in his first Red Bull season, starting in Canada.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2014",
@@ -423,7 +449,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 19 Grand Prix results of 2014, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100). The 2014 finale in Abu Dhabi awarded double points, which this total includes.",
-    "napkin": "The top 10 share 101 points per race, and there were 19 races."
+    "fact": "The finale in Abu Dhabi was worth double points, a one-off rule that was dropped after the season.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2014",
@@ -438,7 +465,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2014 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Daniel Ricciardo finished second on his Red Bull debut but was disqualified for a fuel-flow breach, promoting debutant Kevin Magnussen to second.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2014_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2015",
@@ -454,7 +482,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2015 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 19) drivers' standings.",
-    "napkin": "There were 19 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "Lewis Hamilton clinched the title with three races to spare at the United States Grand Prix in Austin.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2015",
@@ -470,7 +499,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2015 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 19 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Sebastian Vettel won three races in his first season with Ferrari.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2015",
@@ -486,7 +516,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2015, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 19) drivers' standings.",
-    "napkin": "19 races with 25 points for a win, and 10 wins for the champion."
+    "fact": "McLaren raced with Honda engines for the first time since 1992.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2015",
@@ -502,7 +533,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2015.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 19 races."
+    "fact": "Lewis Hamilton clinched the title with three races to spare at the United States Grand Prix in Austin.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2015",
@@ -518,7 +550,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2015 champion (Hamilton) and second place (Rosberg).",
     "calculationNotes": "381 − 322 = 59, from the final round-19 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Sebastian Vettel won three races in his first season with Ferrari.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2015",
@@ -533,7 +566,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 19 Grand Prix results of 2015, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 19 races."
+    "fact": "McLaren raced with Honda engines for the first time since 1992.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2015",
@@ -548,7 +582,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2015 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Only 15 cars took the start and just 11 were classified. Max Verstappen, 17, made his debut.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2015_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2016",
@@ -564,7 +599,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Nico Rosberg, the 2016 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 21) drivers' standings.",
-    "napkin": "There were 21 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "Nico Rosberg retired five days after winning the title, the first champion to quit straight away since Alain Prost in 1993.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2016",
@@ -580,7 +616,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2016 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 21 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Max Verstappen won the Spanish Grand Prix on his Red Bull debut, aged 18, the youngest race winner ever.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2016",
@@ -596,7 +633,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Nico Rosberg in 2016, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 21) drivers' standings.",
-    "napkin": "21 races with 25 points for a win, and 9 wins for the champion."
+    "fact": "The calendar grew to a then-record 21 races, including the first Grand Prix on the streets of Baku.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2016",
@@ -612,7 +650,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2016.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 21 races."
+    "fact": "Nico Rosberg retired five days after winning the title, the first champion to quit straight away since Alain Prost in 1993.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2016",
@@ -628,7 +667,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2016 champion (Rosberg) and second place (Hamilton).",
     "calculationNotes": "385 − 380 = 5, from the final round-21 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Max Verstappen won the Spanish Grand Prix on his Red Bull debut, aged 18, the youngest race winner ever.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2016",
@@ -643,7 +683,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 21 Grand Prix results of 2016, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 21 races."
+    "fact": "The calendar grew to a then-record 21 races, including the first Grand Prix on the streets of Baku.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2016",
@@ -658,7 +699,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2016 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Fernando Alonso walked away from a huge crash that stopped the race with a red flag.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2016_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2017",
@@ -674,7 +716,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2017 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 20) drivers' standings.",
-    "napkin": "There were 20 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "New rules made the cars wider with fatter tyres, and lap records fell at circuit after circuit.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2017",
@@ -690,7 +733,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2017 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 20 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Lewis Hamilton broke Michael Schumacher's all-time pole position record at the Italian Grand Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2017",
@@ -706,7 +750,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2017, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 20) drivers' standings.",
-    "napkin": "20 races with 25 points for a win, and 9 wins for the champion."
+    "fact": "Liberty Media completed its takeover of the sport at the start of the year.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2017",
@@ -722,7 +767,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2017.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 20 races."
+    "fact": "New rules made the cars wider with fatter tyres, and lap records fell at circuit after circuit.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2017",
@@ -738,7 +784,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2017 champion (Hamilton) and second place (Vettel).",
     "calculationNotes": "363 − 317 = 46, from the final round-20 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Lewis Hamilton broke Michael Schumacher's all-time pole position record at the Italian Grand Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2017",
@@ -753,7 +800,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 20 Grand Prix results of 2017, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 20 races."
+    "fact": "Liberty Media completed its takeover of the sport at the start of the year.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2017",
@@ -768,7 +816,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2017 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Sebastian Vettel won, Ferrari's first victory since 2015.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2017_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2018",
@@ -784,7 +833,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2018 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 21) drivers' standings.",
-    "napkin": "There were 21 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "The halo cockpit protection device became mandatory on every car.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2018",
@@ -800,7 +850,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2018 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 21 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "The French Grand Prix returned for the first time since 2008, held at Paul Ricard.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2018",
@@ -816,7 +867,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2018, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 21) drivers' standings.",
-    "napkin": "21 races with 25 points for a win, and 11 wins for the champion."
+    "fact": "Lewis Hamilton's fifth title matched Juan Manuel Fangio's tally.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2018",
@@ -832,7 +884,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2018.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 21 races."
+    "fact": "The halo cockpit protection device became mandatory on every car.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2018",
@@ -848,7 +901,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2018 champion (Hamilton) and second place (Vettel).",
     "calculationNotes": "408 − 320 = 88, from the final round-21 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "The French Grand Prix returned for the first time since 2008, held at Paul Ricard.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2018",
@@ -863,7 +917,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 21 Grand Prix results of 2018, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 21 races."
+    "fact": "Lewis Hamilton's fifth title matched Juan Manuel Fangio's tally.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2018",
@@ -878,7 +933,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2018 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Sebastian Vettel won after pitting under a virtual safety car, jumping ahead of pole-sitter Lewis Hamilton.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2018_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2019",
@@ -894,7 +950,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2019 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 21) drivers' standings.",
-    "napkin": "There were 21 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "A bonus point for fastest lap returned for the first time since 1959, but only for drivers finishing in the top 10.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2019",
@@ -910,7 +967,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2019 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 21 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Charles Leclerc took his first win at the Belgian Grand Prix, then won again at Monza a week later.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2019",
@@ -926,7 +984,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2019, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 21) drivers' standings.",
-    "napkin": "21 races with 25 points for a win, and 11 wins for the champion."
+    "fact": "Max Verstappen's win in Austria was Honda's first since returning as an engine supplier.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2019",
@@ -942,7 +1001,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2019.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 21 races."
+    "fact": "A bonus point for fastest lap returned for the first time since 1959, but only for drivers finishing in the top 10.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2019",
@@ -958,7 +1018,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2019 champion (Hamilton) and second place (Bottas).",
     "calculationNotes": "413 − 326 = 87, from the final round-21 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Charles Leclerc took his first win at the Belgian Grand Prix, then won again at Monza a week later.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2019",
@@ -973,7 +1034,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 21 Grand Prix results of 2019, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 21 races."
+    "fact": "Max Verstappen's win in Austria was Honda's first since returning as an engine supplier.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2019",
@@ -988,7 +1050,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2019 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Valtteri Bottas won and also took the first bonus point for fastest lap since 1959.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2019_Australian_Grand_Prix"
   },
   {
     "id": "champion-wins-2020",
@@ -1004,7 +1067,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lewis Hamilton, the 2020 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 17) drivers' standings.",
-    "napkin": "There were 17 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "The pandemic-hit season started in July and ran 17 races, with two in Austria and two at Silverstone.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2020",
@@ -1020,7 +1084,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2020 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 17 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Lewis Hamilton matched Michael Schumacher's record of seven world titles.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2020",
@@ -1036,7 +1101,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lewis Hamilton in 2020, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 17) drivers' standings.",
-    "napkin": "17 races with 25 points for a win, and 11 wins for the champion."
+    "fact": "Pierre Gasly at Monza and Sergio Pérez at the Sakhir Grand Prix both took their first wins.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2020",
@@ -1052,7 +1118,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2020.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 17 races."
+    "fact": "The pandemic-hit season started in July and ran 17 races, with two in Austria and two at Silverstone.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2020",
@@ -1068,7 +1135,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2020 champion (Hamilton) and second place (Bottas).",
     "calculationNotes": "347 − 223 = 124, from the final round-17 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Lewis Hamilton matched Michael Schumacher's record of seven world titles.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2020",
@@ -1083,7 +1151,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 17 Grand Prix results of 2020, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 17 races."
+    "fact": "Pierre Gasly at Monza and Sergio Pérez at the Sakhir Grand Prix both took their first wins.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2020",
@@ -1098,7 +1167,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2020 Austrian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "The first race of the pandemic season was held in July, only 11 cars finished, and Lando Norris took his first podium.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2020_Austrian_Grand_Prix"
   },
   {
     "id": "champion-wins-2021",
@@ -1114,7 +1184,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Max Verstappen, the 2021 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 22) drivers' standings.",
-    "napkin": "There were 22 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "Max Verstappen and Lewis Hamilton arrived at the final race in Abu Dhabi level on points.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2021",
@@ -1130,7 +1201,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2021 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 22 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "The rain-soaked Belgian Grand Prix ran only a few laps behind the safety car, and half points were awarded.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2021",
@@ -1146,7 +1218,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Max Verstappen in 2021, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 22) drivers' standings.",
-    "napkin": "22 races with 25 points for a win, and 10 wins for the champion."
+    "fact": "Sprint races were tried for the first time, at Silverstone, Monza and Interlagos.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2021",
@@ -1162,7 +1235,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Mercedes in 2021.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 22 races."
+    "fact": "Max Verstappen and Lewis Hamilton arrived at the final race in Abu Dhabi level on points.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2021",
@@ -1178,7 +1252,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2021 champion (Verstappen) and second place (Hamilton).",
     "calculationNotes": "395.5 − 387.5 = 8, from the final round-22 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "The rain-soaked Belgian Grand Prix ran only a few laps behind the safety car, and half points were awarded.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2021",
@@ -1193,7 +1268,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 22 Grand Prix results of 2021, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100). The rain-shortened 2021 Belgian GP awarded half points, which this total includes.",
-    "napkin": "The top 10 share 101 points per race, and there were 22 races."
+    "fact": "Sprint races were tried for the first time, at Silverstone, Monza and Interlagos.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2021",
@@ -1208,7 +1284,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2021 Bahrain Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Lewis Hamilton held on to win after Max Verstappen had to give back the lead for passing off the track.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2021_Bahrain_Grand_Prix"
   },
   {
     "id": "champion-wins-2022",
@@ -1224,7 +1301,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Max Verstappen, the 2022 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 22) drivers' standings.",
-    "napkin": "There were 22 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "Ground-effect aerodynamics returned with all-new cars on 18-inch wheels.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2022",
@@ -1240,7 +1318,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2022 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 22 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Max Verstappen set a new record of 15 wins in a single season.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2022",
@@ -1256,7 +1335,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Max Verstappen in 2022, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 22) drivers' standings.",
-    "napkin": "22 races with 25 points for a win, and 15 wins for the champion."
+    "fact": "George Russell took his first win at the São Paulo Grand Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2022",
@@ -1272,7 +1352,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for Red Bull in 2022.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 22 races."
+    "fact": "Ground-effect aerodynamics returned with all-new cars on 18-inch wheels.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2022",
@@ -1288,7 +1369,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2022 champion (Verstappen) and second place (Leclerc).",
     "calculationNotes": "454 − 308 = 146, from the final round-22 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Max Verstappen set a new record of 15 wins in a single season.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2022",
@@ -1303,7 +1385,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 22 Grand Prix results of 2022, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 22 races."
+    "fact": "George Russell took his first win at the São Paulo Grand Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2022",
@@ -1318,7 +1401,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2022 Bahrain Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Charles Leclerc led a Ferrari one-two in the first race of the new ground-effect era, while both Red Bulls retired late on.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2022_Bahrain_Grand_Prix"
   },
   {
     "id": "different-winners-2023",
@@ -1334,7 +1418,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2023 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 22 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Max Verstappen won 10 races in a row, from Miami to Monza, a new record.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2023",
@@ -1349,7 +1434,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2023 Bahrain Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Fernando Alonso finished third in his first race for Aston Martin.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2023_Bahrain_Grand_Prix"
   },
   {
     "id": "champion-wins-2024",
@@ -1365,7 +1451,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Max Verstappen, the 2024 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 24) drivers' standings.",
-    "napkin": "There were 24 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "The calendar had a record 24 Grands Prix.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2024",
@@ -1381,7 +1468,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2024 champion (Verstappen) and second place (Norris).",
     "calculationNotes": "437 − 374 = 63, from the final round-24 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "McLaren won the constructors' title for the first time since 1998.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2024",
@@ -1396,7 +1484,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 24 Grand Prix results of 2024, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 24 races."
+    "fact": "Lando Norris took his first Grand Prix win in Miami.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2024",
@@ -1411,7 +1500,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2024 Bahrain Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "The race was held on a Saturday because of Ramadan.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2024_Bahrain_Grand_Prix"
   },
   {
     "id": "champion-wins-2025",
@@ -1427,7 +1517,8 @@
     "sourceType": "reported",
     "definition": "Grand Prix wins for Lando Norris, the 2025 drivers' champion. Sprints are not counted.",
     "calculationNotes": "Read directly from the 'wins' field of the final (round 24) drivers' standings.",
-    "napkin": "There were 24 Grands Prix that year. Champions usually win somewhere between a quarter and three-quarters of them."
+    "fact": "The sport marked its 75th anniversary, 75 years after the first World Championship race in 1950.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "different-winners-2025",
@@ -1443,7 +1534,8 @@
     "sourceType": "calculated",
     "definition": "Count of distinct drivers classified first in a 2025 Grand Prix. Sprint races are not counted.",
     "calculationNotes": "Took the winner of each of the 24 Grands Prix and counted unique drivers.",
-    "napkin": "Dominant seasons have two or three winners. Open seasons can reach seven or more."
+    "fact": "Lewis Hamilton moved from Mercedes to Ferrari.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "champion-points-2025",
@@ -1459,7 +1551,8 @@
     "sourceType": "reported",
     "definition": "Final drivers' championship points for Lando Norris in 2025, including any sprint and bonus points that season awarded.",
     "calculationNotes": "Read directly from the final (round 24) drivers' standings.",
-    "napkin": "24 races with 25 points for a win, and 7 wins for the champion."
+    "fact": "Lando Norris won the title by just two points from Max Verstappen.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "constructor-points-2025",
@@ -1475,7 +1568,8 @@
     "sourceType": "reported",
     "definition": "Final constructors' championship points for McLaren in 2025.",
     "calculationNotes": "Read directly from the final constructors' standings.",
-    "napkin": "Both cars score. A one-two finish is worth 43 points, and there were 24 races."
+    "fact": "The sport marked its 75th anniversary, 75 years after the first World Championship race in 1950.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "title-gap-2025",
@@ -1491,7 +1585,8 @@
     "sourceType": "calculated",
     "definition": "Difference between the final points of the 2025 champion (Norris) and second place (Verstappen).",
     "calculationNotes": "423 − 421 = 2, from the final round-24 drivers' standings.",
-    "napkin": "Title fights can go down to single digits. Runaway seasons stretch into the hundreds."
+    "fact": "Lewis Hamilton moved from Mercedes to Ferrari.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "gp-points-total-2025",
@@ -1506,7 +1601,8 @@
     "sourceType": "calculated",
     "definition": "Sum of championship points given to every driver in the 24 Grand Prix results of 2025, as recorded in each race result (any fastest-lap bonus included; sprints excluded).",
     "calculationNotes": "Summed the 'points' field across all Grand Prix result rows (paged with limit=100).",
-    "napkin": "The top 10 share 101 points per race, and there were 24 races."
+    "fact": "Lando Norris won the title by just two points from Max Verstappen.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Formula_One_World_Championship"
   },
   {
     "id": "pitstops-opener-2025",
@@ -1521,7 +1617,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2025 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "Lando Norris won a rain-hit race from pole position.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2025_Australian_Grand_Prix"
   },
   {
     "id": "pitstops-opener-2026",
@@ -1536,7 +1633,8 @@
     "sourceType": "calculated",
     "definition": "Total pit stop entries for the 2026 Australian Grand Prix (round 1) in the Jolpica pit stop dataset.",
     "calculationNotes": "Read the 'total' field of the race's pit stop list. Limitation: the dataset logs stops from timing data, and tyre changes during red-flag stoppages may not appear, so treat this as the dataset's count, not an official FIA figure.",
-    "napkin": "There are about 20 cars, and most make one or two stops in a dry race."
+    "fact": "New rules brought smaller cars and power units with a much bigger electric share, running on sustainable fuel.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2026_Formula_One_World_Championship"
   },
   {
     "id": "monaco-laps-2026",
@@ -1551,6 +1649,7 @@
     "sourceType": "reported",
     "definition": "Laps completed by the winner of the 2026 Monaco Grand Prix (round 6).",
     "calculationNotes": "Read directly from the winner's 'laps' field in the race result.",
-    "napkin": "Races are about 305 km, and a lap of Monaco is about 3.3 km."
+    "fact": "Cadillac joined the grid as an 11th team, and Audi took over the Sauber team.",
+    "factSourceUrl": "https://en.wikipedia.org/wiki/2026_Formula_One_World_Championship"
   }
 ]

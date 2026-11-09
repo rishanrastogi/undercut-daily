@@ -36,7 +36,7 @@ export function validateQuestions(data: unknown, now: Date = new Date()): string
     if (!nonEmpty(q.id) || !ID.test(q.id!)) errors.push(`${at}: id must be kebab-case`)
     else if (seen.has(q.id!)) errors.push(`${at}: duplicate id`)
     else seen.add(q.id!)
-    for (const f of ['prompt', 'unit', 'sourceName', 'definition', 'calculationNotes'] as const) {
+    for (const f of ['prompt', 'unit', 'sourceName', 'definition', 'calculationNotes', 'fact'] as const) {
       if (!nonEmpty(q[f])) errors.push(`${at}: missing ${f}`)
     }
     if (typeof q.answer !== 'number' || !Number.isFinite(q.answer) || q.answer < 0) {
@@ -46,6 +46,7 @@ export function validateQuestions(data: unknown, now: Date = new Date()): string
     if (!isValidDate(q.sourceDate)) errors.push(`${at}: sourceDate must be a real YYYY-MM-DD date`)
     else if (new Date(`${q.sourceDate}T00:00:00Z`) > now) errors.push(`${at}: sourceDate is in the future`)
     if (!isUrl(q.sourceUrl)) errors.push(`${at}: sourceUrl must be an https URL`)
+    if (!isUrl(q.factSourceUrl)) errors.push(`${at}: factSourceUrl must be an https URL`)
     if (q.corroborationUrl !== undefined && !isUrl(q.corroborationUrl)) {
       errors.push(`${at}: corroborationUrl must be an https URL`)
     }

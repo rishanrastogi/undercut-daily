@@ -23,6 +23,8 @@ describe('content validation', () => {
       { ...good, id: 'e', sourceType: 'guess' },
       { ...good, id: 'f', sourceDate: '2999-01-01' },
       { ...good, id: 'g', difficulty: 'extreme' },
+      { ...good, id: 'h', fact: '' },
+      { ...good, id: 'i', factSourceUrl: 'wikipedia' },
     ]
     const errs = validateQuestions(bad).join('\n')
     expect(errs).toMatch(/a\).*answer/)
@@ -32,6 +34,8 @@ describe('content validation', () => {
     expect(errs).toMatch(/e\).*sourceType/)
     expect(errs).toMatch(/f\).*future/)
     expect(errs).toMatch(/g\).*difficulty/)
+    expect(errs).toMatch(/h\).*fact/)
+    expect(errs).toMatch(/i\).*factSourceUrl/)
   })
 
   it('requires every difficulty to be present', () => {

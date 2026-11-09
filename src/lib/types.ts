@@ -20,6 +20,7 @@ export interface Question {
   sourceType: SourceType
   definition: string
   calculationNotes: string
-  /** Optional estimation hint shown after reveal. */
-  napkin?: string
+  /** A short, sourced fact about that Grand Prix or season, shown after the reveal. Written in our own words. */
+  fact: string
+  factSourceUrl: string
 }

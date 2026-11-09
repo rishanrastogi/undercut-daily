@@ -159,6 +159,12 @@ export default function App() {
           A fan-made estimation game built on public historical race data. Not affiliated with, endorsed by or
           connected to any racing series, team or driver.
         </p>
+        <p>
+          Race data from the{' '}
+          <a href="https://github.com/jolpica/jolpica-f1" target="_blank" rel="noreferrer">Jolpica F1 API</a>, used under{' '}
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noreferrer">CC BY-NC-SA 4.0</a>.
+          The question set is shared under the same licence.
+        </p>
       </footer>
       {helpOpen && <Help onClose={closeHelp} />}
     </div>
@@ -404,28 +410,36 @@ function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
       </div>
 
       <div className="reveal-foot">
-        <details className="napkin-panel">
-          <summary>
-            <span>Napkin math</span>
-            <span className={`badge ${q.sourceType}`}>{q.sourceType === 'reported' ? 'Reported' : 'Calculated'}</span>
-          </summary>
-          {q.napkin && <p className="napkin">{q.napkin}</p>}
-          <dl>
-          <dt>What's counted</dt>
-          <dd>{q.definition}</dd>
-          <dt>How we got it</dt>
-          <dd>{q.calculationNotes}</dd>
-          <dt>Source</dt>
-          <dd>
-            <a href={q.sourceUrl} target="_blank" rel="noreferrer">{q.sourceName}</a> · final as of {q.sourceDate}
-            {q.corroborationUrl && (
-              <>
-                {' '}· <a href={q.corroborationUrl} target="_blank" rel="noreferrer">cross-check</a>
-              </>
-            )}
-          </dd>
-          </dl>
-        </details>
+        <div className="fact-panel">
+          <span className="lbl">Did you know?</span>
+          <p className="fact">
+            {q.fact}{' '}
+            <a href={q.factSourceUrl} target="_blank" rel="noreferrer" className="fact-src">
+              Source
+            </a>
+          </p>
+          <details className="method">
+            <summary>
+              How we counted this{' '}
+              <span className={`badge ${q.sourceType}`}>{q.sourceType === 'reported' ? 'Reported' : 'Calculated'}</span>
+            </summary>
+            <dl>
+              <dt>What's counted</dt>
+              <dd>{q.definition}</dd>
+              <dt>How we got it</dt>
+              <dd>{q.calculationNotes}</dd>
+              <dt>Data</dt>
+              <dd>
+                <a href={q.sourceUrl} target="_blank" rel="noreferrer">{q.sourceName}</a> · final as of {q.sourceDate}
+                {q.corroborationUrl && (
+                  <>
+                    {' '}· <a href={q.corroborationUrl} target="_blank" rel="noreferrer">cross-check</a>
+                  </>
+                )}
+              </dd>
+            </dl>
+          </details>
+        </div>
         <button ref={nextRef} className="btn next-btn" onClick={onNext}>
           {nextLabel} <span aria-hidden="true">→</span>
         </button>
@@ -539,7 +553,7 @@ function Help({ onClose }: { onClose: () => void }) {
       <h2 id="help-title">How to play</h2>
       <ol>
         <li>Each day brings <b>three race-stat questions</b> (one easy, one medium, one hard), the same for everyone. A new puzzle unlocks at midnight UTC.</li>
-        <li>You get <b>one guess per question</b>. Think it through, maybe do some napkin math, then lock it in.</li>
+        <li>You get <b>one guess per question</b>. Think it through, then lock it in.</li>
         <li>After each guess you see the real answer, how far off you were, and where the number comes from.</li>
       </ol>
       <h3>Tyres</h3>
