@@ -418,27 +418,6 @@ function Reveal({ q, guess, nextRef, onNext, nextLabel }: RevealProps) {
               Source
             </a>
           </p>
-          <details className="method">
-            <summary>
-              How we counted this{' '}
-              <span className={`badge ${q.sourceType}`}>{q.sourceType === 'reported' ? 'Reported' : 'Calculated'}</span>
-            </summary>
-            <dl>
-              <dt>What's counted</dt>
-              <dd>{q.definition}</dd>
-              <dt>How we got it</dt>
-              <dd>{q.calculationNotes}</dd>
-              <dt>Data</dt>
-              <dd>
-                <a href={q.sourceUrl} target="_blank" rel="noreferrer">{q.sourceName}</a> · final as of {q.sourceDate}
-                {q.corroborationUrl && (
-                  <>
-                    {' '}· <a href={q.corroborationUrl} target="_blank" rel="noreferrer">cross-check</a>
-                  </>
-                )}
-              </dd>
-            </dl>
-          </details>
         </div>
         <button ref={nextRef} className="btn next-btn" onClick={onNext}>
           {nextLabel} <span aria-hidden="true">→</span>
